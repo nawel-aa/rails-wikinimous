@@ -22,12 +22,15 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    Article.update(check_article_params)
+    @article.update(check_article_params)
 
     redirect_to article_path(params[:id])
   end
 
   def destroy
+    @article.destroy
+
+    redirect_to articles_path
   end
 
   private
